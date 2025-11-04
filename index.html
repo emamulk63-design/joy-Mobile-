@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joya Mobile Service Center</title>
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: #f8f8f8;
+    color: #333;
+  }
+
+  header {
+    background: #111;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .hero {
+    background: url('https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/Red%20and%20Black%20Modern%20Business%20Development%20Strategy%20Banner_20251103_234050_0000.png') center/cover no-repeat;
+    height: 200px;
+  }
+
+  @media (max-width: 768px) {
+    .hero { height: 160px; background-position: center top; }
+  }
+
+  .tagline {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 20px 10px;
+    color: #d61c1c;
+  }
+
+  .address {
+    text-align: center;
+    padding: 5px 15px 15px 15px;
+    font-size: 1rem;
+    color: #444;
+  }
+
+  .categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px;
+    gap: 10px;
+  }
+
+  .categories button {
+    background: #d61c1c;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 25px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .categories button:hover {
+    background: #a21313;
+    transform: scale(1.05);
+  }
+
+  .products {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .product {
+    background: #fff;
+    width: 200px; /* 180px থেকে 200px - প্রস্থে বড় */
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    padding: 15px; /* 12px থেকে 15px */
+    transition: 0.3s;
+  }
+
+  .product img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .product h4 {
+    font-size: 1rem;
+    margin: 10px 0 6px 0;
+  }
+
+  .product p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.4;
+  }
+
+  .discount-badge {
+    background: #d61c1c;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+
+  .price {
+    font-weight: bold;
+    color: #d61c1c;
+  }
+
+  .original-price {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 0.8rem;
+    margin-right: 5px;
+  }
+
+  .highlight-price {
+    background: #fff3cd;
+    color: #856404;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 1px solid #ffeaa7;
+    display: inline-block;
+    margin: 5px 0;
+  }
+
+  .product button {
+    background: #d61c1c;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-top: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+  }
+
+  .product button:hover {
+    background: #a21313;
+  }
+
+  footer {
+    background: #111;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin-top: 30px;
+  }
+</style>
+</head>
+<body>
+
+<header>Joya Mobile Service Center</header>
+
+<section class="hero"></section>
+
+<div class="tagline">আপনার নষ্ট মোবাইল ঠিক করার নির্ভরযোগ্য জায়গা</div>
+<div class="address">ঠিকানা: গোহাইলবাড়ি, বোয়ালমারী, ফরিদপুর</div>
+
+<!-- Category Buttons -->
+<div class="categories">
+  <button onclick="showProducts('smartphone')">স্মার্টফোন</button>
+  <button onclick="showProducts('service')">সার্ভিসিং</button>
+  <button onclick="showProducts('buttonphone')">বাটন ফোন</button>
+  <button onclick="showProducts('accessories')">মোবাইল এক্সেসরিজ</button>
+  <button onclick="window.location.href='about.html'">আমাদের সম্পর্কে</button>
+</div>
+
+<!-- Products -->
+
+<div id="smartphone" class="products">
+  <div class="product">
+    <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/Samsung-S25-Ultra-Titanium-Black.jpg" alt="Samsung S25">
+    <div class="discount-badge">২৩% ছাড়</div>
+    <h4>Samsung S25</h4>
+    <p>
+      <span class="original-price">৳১৯৪,৮০৫</span>
+      <span class="price">৳১৫০,০০০</span><br>
+      শক্তিশালী ক্যামেরা এবং সুপারফাস্ট প্রসেসর
+    </p>
+    <button onclick="order()">অর্ডার দিন</button>
+  </div>
+  <div class="product">
+    <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/Apple-iPhone-16-Pro-hero-240909_inline.jpg.large.jpg" alt="Iphone 16 Pro Max">
+    <div class="discount-badge">২০% ছাড়</div>
+    <h4>Iphone 16 Pro Max</h4>
+    <p>
+      <span class="original-price">৳২২৫,০০০</span>
+      <span class="price">৳১৮০,০০০</span><br>
+      প্রিমিয়াম ডিজাইন এবং অসাধারণ পারফরম্যান্স
+    </p>
+    <button onclick="order()">অর্ডার দিন</button>
+  </div>
+  <div class="product">
+    <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/Xiaomi-15-Ultra-Silver.webp" alt="Xiaomi 15 Ultra">
+    <div class="discount-badge">২১% ছাড়</div>
+    <h4>Xiaomi 15 Ultra</h4>
+    <p>
+      <span class="original-price">৳১৭৭,২১৫</span>
+      <span class="price">৳১৪০,০০০</span><br>
+      21 সেপ্টেম্বর প্রকাশিত, উচ্চমানের ডিসপ্লে এবং ব্যাটারি
+    </p>
+    <button onclick="order()">অর্ডার দিন</button>
+  </div>
+  <div class="product">
+    <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/redminote30.webp" alt="Redmi Note 13 Pro 5G">
+    <div class="discount-badge">১২% ছাড়</div>
+    <h4>Redmi Note 13 Pro 5G</h4>
+    <p>
+      <span class="original-price">৳৪০,৯০৯</span>
+      <span class="price">৳৩৬,০০০</span><br>
+      256GB স্টোরেজ, 21 সেপ্টেম্বর প্রকাশিত
+    </p>
+    <button onclick="order()">অর্ডার দিন</button>
+  </div>
+  <div class="product">
+    <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/realme-12-pro-submarine-blue-official-image.webp" alt="Realme 12 Pro">
+    <div class="discount-badge">১৮% ছাড়</div>
+    <h4>Realme 12 Pro</h4>
+    <p>
+      <span class="original-price">৳৪,৩৯০</span>
+      <span class="price">৳৩,৬০০</span><br>
+      10 মার্চ 2024 প্রকাশিত, দ্রুত পারফরম্যান্স
+    </p>
+    <button onclick="order()">অর্ডার দিন</button>
+  </div>
+</div>
+
+<div id="service" class="products">
+  <div class="product">
+    <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/display.jpg" alt="ডিসপ্লে রিপেয়ার">
+    <h4>ডিসপ্লে রিপেয়ার</h4>
+    <div class="highlight-price">মূল্য: আলোচনা সাপেক্ষে</div>
+    <p>বাটন ও স্মার্টফোনের ডিসপ্লে সমস্যা দ্রুত সমাধান করি।</p>
+    <button onclick="order()">অর্ডার দিন</button>
+  </div>
+  <div class="product">
+    <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/software.png" alt="সফটওয়্যার সার্ভিস">
+    <h4>সফটওয়্যার সার্ভিস</h4>
+    <div class="highlight-price">মূল্য: আলোচনা সাপেক্ষে</div>
+    <p>অ্যান্ড্রয়েড ফোনের সফটওয়্যার আপডেট, রিস্টোর ও বাগ ফিক্স করি।</p>
+    <button onclick="order()">অর্ডার দিন</button>
+  </div>
+  <div class="product">
+    <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/motherboard.jpg" alt="মোবাইল মাদারবোর্ড সার্ভিস">
+    <h4>মোবাইল মাদারবোর্ড সার্ভিস</h4>
+    <div class="highlight-price">মূল্য: আলোচনা সাপেক্ষে</div>
+    <p>বাটন ও স্মার্টফোনের মাদারবোর্ড সমস্যা দ্রুত সমাধান করি।</p>
+    <button onclick="order()">অর্ডার দিন</button>
+  </div>
+  <div class="product">
+    <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/Mobile-Speaker-sample.jpg" alt="স্পিকার ও মাইক্রোফোন সার্ভিস">
+    <h4>স্পিকার ও মাইক্রোফোন সার্ভিস</h4>
+    <div class="highlight-price">মূল্য: আলোচনা সাপেক্ষে</div>
+    <p>ফোনের শব্দ সমস্যা বা মাইক্রোফোন সমস্যা সমাধান করি।</p>
+    <button onclick="order()">অর্ডার দিন</button>
+  </div>
+</div>
+
+<div id="buttonphone" class="products">
+  <div class="product">
+    <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/samsangbaton.png" alt="Samsung বাটন ফোন">
+    <div class="discount-badge">১২% ছাড়</div>
+    <h4>Samsung</h4>
+    <p>
+      <span class="original-price">৳২,৮৪১</span>
+      <span class="price">৳২,৫০০</span><br>
+      সাধারণ বাটন ফোন, সহজ ব্যবহারযোগ্য
+    </p>
+    <button onclick="order()">অর্ডার দিন</button>
+  </div>
+  <div class="product">
+    <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/Nokia-8000-4G-Official-image-2-499x499.webp" alt="Nokia 8000 4G">
+    <div class="discount-badge">১৫% ছাড়</div>
+    <h4>Nokia 8000 4G</h4>
+    <p>
+      <span class="original-price">৳৭,০৫৮</span>
+      <span class="price">৳৫,৯৯৯</span><br>
+      Dual SIM, 4G connectivity
+    </p>
+    <button onclick="order()">অর্ডার দিন</button>
+  </div>
+  <div class="product">
+    <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/nokia_220_4g_2024_black.webp" alt="Nokia 220 4G">
+    <div class="discount-badge">১৭% ছাড়</div>
+    <h4>Nokia 220 4G</h4>
+    <p>
+      <span class="original-price">৳৮,৪৩৪</span>
+      <span class="price">৳৭,০০০</span><br>
+      Bluetooth, MP3 Player, Wireless FM, Snake Game
+    </p>
+    <button onclick="order()">অর্ডার দিন</button>
+  </div>
+  <div class="product">
+    <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/symphonys30.jpg" alt="Symphony S30">
+    <div class="discount-badge">১৬% ছাড়</div>
+    <h4>Symphony S30</h4>
+    <p>
+      <span class="original-price">৳১,৯০৪</span>
+      <span class="price">৳১,৫৯৯</span><br>
+      Original motherboard, GSM network, compact size
+    </p>
+    <button onclick="order()">অর্ডার দিন</button>
+  </div>
+</div>
+
+<div id="accessories" class="products">
+  <div class="product">
+    <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/backcover1.jpg" alt="মোবাইল ব্যাক কভার">
+    <h4>মোবাইল ব্যাক কভার</h4>
+    <p>৳250 - ফোনকে সুরক্ষিত রাখার জন্য উচ্চমানের ব্যাক কভার</p>
+    <button onclick="order()">অর্ডার দিন</button>
+  </div>
+  <div class="product">
+    <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/backcover2.jpg" alt="মোবাইল ব্যাক কভার">
+    <h4>মোবাইল ব্যাক কভার</h4>
+    <p>৳230 - স্টাইলিশ এবং টেকসই ডিজাইন, সহজে লাগানো যায়</p>
+    <button onclick="order()">অর্ডার দিন</button>
+  </div>
+  <div class="product">
+    <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/charger.png" alt="চার্জার">
+    <h4>চার্জার</h4>
+    <p>৳280 - দ্রুত চার্জিং সাপোর্ট, স্থায়ী এবং নিরাপদ</p>
+    <button onclick="order()">অর্ডার দিন</button>
+  </div>
+  <div class="product">
+    <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/headphone1.jpg" alt="ওয়ারলেস ব্লুটুথ হেডফোন">
+    <h4>ওয়ারলেস ব্লুটুথ হেডফোন</h4>
+    <p>৳300 - P47 স্টেরিও ইয়ারফোন, সুপার সাউন্ড কোয়ালিটি</p>
+    <button onclick="order()">অর্ডার দিন</button>
+  </div>
+  <div class="product">
+    <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/headphone2.jpg" alt="Lenovo XT88 হেডফোন">
+    <h4>Lenovo XT88 হেডফোন</h4>
+    <p>৳930 - ব্লুটুথ 5.3, ওয়্যারলেস স্টেরিও ইয়ারফোন</p>
+    <button onclick="order()">অর্ডার দিন</button>
+  </div>
+  <div class="product">
+    <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/mobilecasing1.jpg" alt="মোবাইল ক্যাচিং">
+    <h4>মোবাইল ক্যাচিং</h4>
+    <p>৳200 - ফোনকে ঝামেলা মুক্ত রাখার জন্য উপযুক্ত ক্যাচিং</p>
+    <button onclick="order()">অর্ডার দিন</button>
+  </div>
+  <div class="product">
+    <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/mobilecasing2.jpg" alt="মোবাইল ক্যাচিং">
+    <h4>মোবাইল ক্যাচিং</h4>
+    <p>৳180 - টেকসই এবং সুন্দর ডিজাইন, প্রতিদিনের ব্যবহার উপযোগী</p>
+    <button onclick="order()">অর্ডার দিন</button>
+  </div>
+</div>
+
+<footer>
+  © 2025 Joya Mobile Service Center | Developed by MD EMAMUL
+</footer>
+
+<script>
+function showProducts(id) {
+  document.querySelectorAll('.products').forEach(div => div.style.display = 'none');
+  document.getElementById(id).style.display = 'flex';
+}
+
+function order() {
+  window.location.href = 'order.html';
+}
+
+// পেজ লোডে স্মার্টফোন শো হবে
+window.onload = function() {
+  document.getElementById('smartphone').style.display = 'flex';
+}
+</script>
+
+</body>
+</html>
