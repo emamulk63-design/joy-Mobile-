@@ -79,11 +79,11 @@
 
   .product {
     background: #fff;
-    width: 200px; /* 180px থেকে 200px - প্রস্থে বড় */
+    width: 200px;
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     text-align: center;
-    padding: 15px; /* 12px থেকে 15px */
+    padding: 15px;
     transition: 0.3s;
   }
 
@@ -194,7 +194,7 @@
       <span class="price">৳১৫০,০০০</span><br>
       শক্তিশালী ক্যামেরা এবং সুপারফাস্ট প্রসেসর
     </p>
-    <button onclick="order()">অর্ডার দিন</button>
+    <button onclick="orderProduct('Samsung S25', '৳১৫০,০০০', 'https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/Samsung-S25-Ultra-Titanium-Black.jpg')">অর্ডার দিন</button>
   </div>
   <div class="product">
     <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/Apple-iPhone-16-Pro-hero-240909_inline.jpg.large.jpg" alt="Iphone 16 Pro Max">
@@ -205,7 +205,7 @@
       <span class="price">৳১৮০,০০০</span><br>
       প্রিমিয়াম ডিজাইন এবং অসাধারণ পারফরম্যান্স
     </p>
-    <button onclick="order()">অর্ডার দিন</button>
+    <button onclick="orderProduct('Iphone 16 Pro Max', '৳১৮০,০০০', 'https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/Apple-iPhone-16-Pro-hero-240909_inline.jpg.large.jpg')">অর্ডার দিন</button>
   </div>
   <div class="product">
     <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/Xiaomi-15-Ultra-Silver.webp" alt="Xiaomi 15 Ultra">
@@ -216,7 +216,7 @@
       <span class="price">৳১৪০,০০০</span><br>
       21 সেপ্টেম্বর প্রকাশিত, উচ্চমানের ডিসপ্লে এবং ব্যাটারি
     </p>
-    <button onclick="order()">অর্ডার দিন</button>
+    <button onclick="orderProduct('Xiaomi 15 Ultra', '৳১৪০,০০০', 'https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/Xiaomi-15-Ultra-Silver.webp')">অর্ডার দিন</button>
   </div>
   <div class="product">
     <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/redminote30.webp" alt="Redmi Note 13 Pro 5G">
@@ -227,7 +227,7 @@
       <span class="price">৳৩৬,০০০</span><br>
       256GB স্টোরেজ, 21 সেপ্টেম্বর প্রকাশিত
     </p>
-    <button onclick="order()">অর্ডার দিন</button>
+    <button onclick="orderProduct('Redmi Note 13 Pro 5G', '৳৩৬,০০০', 'https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/redminote30.webp')">অর্ডার দিন</button>
   </div>
   <div class="product">
     <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/realme-12-pro-submarine-blue-official-image.webp" alt="Realme 12 Pro">
@@ -238,7 +238,7 @@
       <span class="price">৳৩,৬০০</span><br>
       10 মার্চ 2024 প্রকাশিত, দ্রুত পারফরম্যান্স
     </p>
-    <button onclick="order()">অর্ডার দিন</button>
+    <button onclick="orderProduct('Realme 12 Pro', '৳৩,৬০০', 'https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/realme-12-pro-submarine-blue-official-image.webp')">অর্ডার দিন</button>
   </div>
 </div>
 
@@ -248,28 +248,28 @@
     <h4>ডিসপ্লে রিপেয়ার</h4>
     <div class="highlight-price">মূল্য: আলোচনা সাপেক্ষে</div>
     <p>বাটন ও স্মার্টফোনের ডিসপ্লে সমস্যা দ্রুত সমাধান করি।</p>
-    <button onclick="order()">অর্ডার দিন</button>
+    <button onclick="orderService('ডিসপ্লে রিপেয়ার', 'https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/display.jpg')">অর্ডার দিন</button>
   </div>
   <div class="product">
     <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/software.png" alt="সফটওয়্যার সার্ভিস">
     <h4>সফটওয়্যার সার্ভিস</h4>
     <div class="highlight-price">মূল্য: আলোচনা সাপেক্ষে</div>
     <p>অ্যান্ড্রয়েড ফোনের সফটওয়্যার আপডেট, রিস্টোর ও বাগ ফিক্স করি।</p>
-    <button onclick="order()">অর্ডার দিন</button>
+    <button onclick="orderService('সফটওয়্যার সার্ভিস', 'https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/software.png')">অর্ডার দিন</button>
   </div>
   <div class="product">
     <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/motherboard.jpg" alt="মোবাইল মাদারবোর্ড সার্ভিস">
     <h4>মোবাইল মাদারবোর্ড সার্ভিস</h4>
     <div class="highlight-price">মূল্য: আলোচনা সাপেক্ষে</div>
     <p>বাটন ও স্মার্টফোনের মাদারবোর্ড সমস্যা দ্রুত সমাধান করি।</p>
-    <button onclick="order()">অর্ডার দিন</button>
+    <button onclick="orderService('মোবাইল মাদারবোর্ড সার্ভিস', 'https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/motherboard.jpg')">অর্ডার দিন</button>
   </div>
   <div class="product">
     <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/Mobile-Speaker-sample.jpg" alt="স্পিকার ও মাইক্রোফোন সার্ভিস">
     <h4>স্পিকার ও মাইক্রোফোন সার্ভিস</h4>
     <div class="highlight-price">মূল্য: আলোচনা সাপেক্ষে</div>
     <p>ফোনের শব্দ সমস্যা বা মাইক্রোফোন সমস্যা সমাধান করি।</p>
-    <button onclick="order()">অর্ডার দিন</button>
+    <button onclick="orderService('স্পিকার ও মাইক্রোফোন সার্ভিস', 'https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/Mobile-Speaker-sample.jpg')">অর্ডার দিন</button>
   </div>
 </div>
 
@@ -283,7 +283,7 @@
       <span class="price">৳২,৫০০</span><br>
       সাধারণ বাটন ফোন, সহজ ব্যবহারযোগ্য
     </p>
-    <button onclick="order()">অর্ডার দিন</button>
+    <button onclick="orderProduct('Samsung বাটন ফোন', '৳২,৫০০', 'https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/samsangbaton.png')">অর্ডার দিন</button>
   </div>
   <div class="product">
     <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/Nokia-8000-4G-Official-image-2-499x499.webp" alt="Nokia 8000 4G">
@@ -294,7 +294,7 @@
       <span class="price">৳৫,৯৯৯</span><br>
       Dual SIM, 4G connectivity
     </p>
-    <button onclick="order()">অর্ডার দিন</button>
+    <button onclick="orderProduct('Nokia 8000 4G', '৳৫,৯৯৯', 'https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/Nokia-8000-4G-Official-image-2-499x499.webp')">অর্ডার দিন</button>
   </div>
   <div class="product">
     <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/nokia_220_4g_2024_black.webp" alt="Nokia 220 4G">
@@ -305,7 +305,7 @@
       <span class="price">৳৭,০০০</span><br>
       Bluetooth, MP3 Player, Wireless FM, Snake Game
     </p>
-    <button onclick="order()">অর্ডার দিন</button>
+    <button onclick="orderProduct('Nokia 220 4G', '৳৭,০০০', 'https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/nokia_220_4g_2024_black.webp')">অর্ডার দিন</button>
   </div>
   <div class="product">
     <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/symphonys30.jpg" alt="Symphony S30">
@@ -316,7 +316,7 @@
       <span class="price">৳১,৫৯৯</span><br>
       Original motherboard, GSM network, compact size
     </p>
-    <button onclick="order()">অর্ডার দিন</button>
+    <button onclick="orderProduct('Symphony S30', '৳১,৫৯৯', 'https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/symphonys30.jpg')">অর্ডার দিন</button>
   </div>
 </div>
 
@@ -325,43 +325,43 @@
     <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/backcover1.jpg" alt="মোবাইল ব্যাক কভার">
     <h4>মোবাইল ব্যাক কভার</h4>
     <p>৳250 - ফোনকে সুরক্ষিত রাখার জন্য উচ্চমানের ব্যাক কভার</p>
-    <button onclick="order()">অর্ডার দিন</button>
+    <button onclick="orderProduct('মোবাইল ব্যাক কভার', '৳২৫০', 'https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/backcover1.jpg')">অর্ডার দিন</button>
   </div>
   <div class="product">
     <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/backcover2.jpg" alt="মোবাইল ব্যাক কভার">
     <h4>মোবাইল ব্যাক কভার</h4>
     <p>৳230 - স্টাইলিশ এবং টেকসই ডিজাইন, সহজে লাগানো যায়</p>
-    <button onclick="order()">অর্ডার দিন</button>
+    <button onclick="orderProduct('মোবাইল ব্যাক কভার', '৳২৩০', 'https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/backcover2.jpg')">অর্ডার দিন</button>
   </div>
   <div class="product">
     <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/charger.png" alt="চার্জার">
     <h4>চার্জার</h4>
     <p>৳280 - দ্রুত চার্জিং সাপোর্ট, স্থায়ী এবং নিরাপদ</p>
-    <button onclick="order()">অর্ডার দিন</button>
+    <button onclick="orderProduct('চার্জার', '৳২৮০', 'https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/charger.png')">অর্ডার দিন</button>
   </div>
   <div class="product">
     <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/headphone1.jpg" alt="ওয়ারলেস ব্লুটুথ হেডফোন">
     <h4>ওয়ারলেস ব্লুটুথ হেডফোন</h4>
     <p>৳300 - P47 স্টেরিও ইয়ারফোন, সুপার সাউন্ড কোয়ালিটি</p>
-    <button onclick="order()">অর্ডার দিন</button>
+    <button onclick="orderProduct('ওয়ারলেস ব্লুটুথ হেডফোন', '৳৩০০', 'https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/headphone1.jpg')">অর্ডার দিন</button>
   </div>
   <div class="product">
     <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/headphone2.jpg" alt="Lenovo XT88 হেডফোন">
     <h4>Lenovo XT88 হেডফোন</h4>
     <p>৳930 - ব্লুটুথ 5.3, ওয়্যারলেস স্টেরিও ইয়ারফোন</p>
-    <button onclick="order()">অর্ডার দিন</button>
+    <button onclick="orderProduct('Lenovo XT88 হেডফোন', '৳৯৩০', 'https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/headphone2.jpg')">অর্ডার দিন</button>
   </div>
   <div class="product">
     <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/mobilecasing1.jpg" alt="মোবাইল ক্যাচিং">
     <h4>মোবাইল ক্যাচিং</h4>
     <p>৳200 - ফোনকে ঝামেলা মুক্ত রাখার জন্য উপযুক্ত ক্যাচিং</p>
-    <button onclick="order()">অর্ডার দিন</button>
+    <button onclick="orderProduct('মোবাইল ক্যাচিং', '৳২০০', 'https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/mobilecasing1.jpg')">অর্ডার দিন</button>
   </div>
   <div class="product">
     <img src="https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/mobilecasing2.jpg" alt="মোবাইল ক্যাচিং">
     <h4>মোবাইল ক্যাচিং</h4>
     <p>৳180 - টেকসই এবং সুন্দর ডিজাইন, প্রতিদিনের ব্যবহার উপযোগী</p>
-    <button onclick="order()">অর্ডার দিন</button>
+    <button onclick="orderProduct('মোবাইল ক্যাচিং', '৳১৮০', 'https://raw.githubusercontent.com/emamulk63-design/joy-Mobile-/main/mobilecasing2.jpg')">অর্ডার দিন</button>
   </div>
 </div>
 
@@ -370,18 +370,34 @@
 </footer>
 
 <script>
-function showProducts(id) {
-  document.querySelectorAll('.products').forEach(div => div.style.display = 'none');
-  document.getElementById(id).style.display = 'flex';
+// পণ্যের জন্য অর্ডার ফাংশন (স্মার্টফোন, বাটনফোন, এক্সেসরিজ)
+function orderProduct(productName, productPrice, productImage) {
+    const params = new URLSearchParams({
+        name: productName,
+        price: productPrice,
+        image: productImage
+    });
+    window.location.href = 'order.html?' + params.toString();
 }
 
-function order() {
-  window.location.href = 'order.html';
+// সার্ভিসিং এর জন্য অর্ডার ফাংশন
+function orderService(serviceName, serviceImage) {
+    const params = new URLSearchParams({
+        name: serviceName,
+        image: serviceImage
+    });
+    window.location.href = 'service-order.html?' + params.toString();
+}
+
+// ক্যাটাগরি শো করার ফাংশন
+function showProducts(id) {
+    document.querySelectorAll('.products').forEach(div => div.style.display = 'none');
+    document.getElementById(id).style.display = 'flex';
 }
 
 // পেজ লোডে স্মার্টফোন শো হবে
 window.onload = function() {
-  document.getElementById('smartphone').style.display = 'flex';
+    document.getElementById('smartphone').style.display = 'flex';
 }
 </script>
 
