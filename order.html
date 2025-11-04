@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>অর্ডার করুন - Joya Mobile Service Center</title>
+    <title>পণ্য অর্ডার করুন - Joya Mobile Service Center</title>
     <style>
         * {
             margin: 0;
@@ -27,7 +27,7 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 600px;
             margin: 20px auto;
             padding: 20px;
             background: white;
@@ -56,18 +56,45 @@
             text-align: center;
         }
 
+        .product-display {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+        }
+
+        .product-display img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .product-display h3 {
+            color: #d61c1c;
+            margin-bottom: 10px;
+        }
+
+        .product-display p {
+            color: #555;
+            font-size: 1.1rem;
+        }
+
         .form-group {
             margin-bottom: 20px;
         }
 
         label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             font-weight: bold;
             color: #555;
         }
 
-        input, select, textarea {
+        input, textarea {
             width: 100%;
             padding: 12px;
             border: 2px solid #ddd;
@@ -76,92 +103,78 @@
             transition: border-color 0.3s;
         }
 
-        input:focus, select:focus, textarea:focus {
+        input:focus, textarea:focus {
             border-color: #d61c1c;
             outline: none;
-        }
-
-        .product-info {
-            background: #f9f9f9;
-            padding: 15px;
-            border-radius: 5px;
-            border-left: 4px solid #d61c1c;
-            margin-bottom: 20px;
-        }
-
-        .product-info h4 {
-            color: #d61c1c;
-            margin-bottom: 10px;
-        }
-
-        .payment-methods {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 10px;
-            margin: 15px 0;
-        }
-
-        .payment-method {
-            border: 2px solid #ddd;
-            padding: 15px;
-            border-radius: 5px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .payment-method:hover {
-            border-color: #d61c1c;
-        }
-
-        .payment-method.selected {
-            border-color: #d61c1c;
-            background: #fff3f3;
-        }
-
-        .payment-method img {
-            width: 40px;
-            height: 40px;
-            margin-bottom: 5px;
         }
 
         .submit-btn {
             background: #d61c1c;
             color: white;
             border: none;
-            padding: 15px 30px;
+            padding: 15px;
             border-radius: 5px;
             font-size: 18px;
             font-weight: bold;
             cursor: pointer;
             width: 100%;
             transition: background 0.3s;
+            margin-top: 10px;
         }
 
         .submit-btn:hover {
             background: #a21313;
         }
 
-        .confirmation {
+        /* Popup Styles */
+        .popup {
             display: none;
-            text-align: center;
-            padding: 30px;
-            background: #d4edda;
-            border: 1px solid #c3e6cb;
-            border-radius: 5px;
-            margin-top: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
         }
 
-        .confirmation h3 {
+        .popup-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .popup h3 {
             color: #155724;
             margin-bottom: 15px;
+            font-size: 1.5rem;
         }
 
-        .order-id {
-            font-size: 24px;
+        .popup p {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .popup-ok {
+            background: #d61c1c;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
             font-weight: bold;
-            color: #d61c1c;
-            margin: 10px 0;
+        }
+
+        .popup-ok:hover {
+            background: #a21313;
         }
 
         footer {
@@ -177,10 +190,6 @@
                 margin: 10px;
                 padding: 15px;
             }
-            
-            .payment-methods {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -193,10 +202,10 @@
     
     <h2>পণ্য অর্ডার করুন</h2>
 
-    <div class="product-info">
-        <h4 id="product-name">পণ্যের নাম</h4>
+    <div class="product-display">
+        <img id="product-image" src="" alt="পণ্যের ছবি">
+        <h3 id="product-name">পণ্যের নাম</h3>
         <p id="product-price">দাম: </p>
-        <p id="product-description">বিস্তারিত: </p>
     </div>
 
     <form id="order-form">
@@ -206,7 +215,7 @@
         </div>
 
         <div class="form-group">
-            <label for="customer-phone">ফোন নম্বর *</label>
+            <label for="customer-phone">মোবাইল নম্বর *</label>
             <input type="tel" id="customer-phone" required placeholder="01XXXXXXXXX">
         </div>
 
@@ -215,53 +224,17 @@
             <textarea id="customer-address" required rows="3" placeholder="আপনার সম্পূর্ণ ঠিকানা লিখুন"></textarea>
         </div>
 
-        <div class="form-group">
-            <label for="product-quantity">পরিমাণ</label>
-            <select id="product-quantity">
-                <option value="1">১ টি</option>
-                <option value="2">২ টি</option>
-                <option value="3">৩ টি</option>
-                <option value="4">৪ টি</option>
-                <option value="5">৫ টি</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label>পেমেন্ট পদ্ধতি *</label>
-            <div class="payment-methods">
-                <div class="payment-method" onclick="selectPayment('cash')">
-                    <div>💵</div>
-                    <strong>ক্যাশ অন ডেলিভারি</strong>
-                </div>
-                <div class="payment-method" onclick="selectPayment('bkash')">
-                    <div>📱</div>
-                    <strong>বিকাশ</strong>
-                </div>
-                <div class="payment-method" onclick="selectPayment('nagad')">
-                    <div>💰</div>
-                    <strong>নগদ</strong>
-                </div>
-                <div class="payment-method" onclick="selectPayment('rocket')">
-                    <div>🚀</div>
-                    <strong>রকেট</strong>
-                </div>
-            </div>
-            <input type="hidden" id="payment-method" required>
-        </div>
-
-        <div class="form-group">
-            <label for="special-notes">বিশেষ নির্দেশনা (ঐচ্ছিক)</label>
-            <textarea id="special-notes" rows="3" placeholder="কোন বিশেষ নির্দেশনা থাকলে এখানে লিখুন..."></textarea>
-        </div>
-
-        <button type="submit" class="submit-btn">অর্ডার কনফার্ম করুন</button>
+        <button type="submit" class="submit-btn">অর্ডার সাবমিট করুন</button>
     </form>
+</div>
 
-    <div class="confirmation" id="confirmation">
-        <h3>✅ আপনার অর্ডার সফলভাবে গ্রহণ করা হয়েছে!</h3>
-        <p>আপনার অর্ডার আইডি:</p>
-        <div class="order-id" id="order-id">JMSC-123456</div>
-        <p>আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব। ধন্যবাদ!</p>
+<!-- Popup Confirmation -->
+<div class="popup" id="confirmation-popup">
+    <div class="popup-content">
+        <h3>✅ অর্ডার সফল!</h3>
+        <p>আপনার অর্ডারটি সফল হয়েছে। কিছু সময়ের মধ্যে আমাদের একজন প্রতিনিধি আপনার সাথে যোগাযোগ করবে।</p>
+        <p><strong>ধন্যবাদ!</strong></p>
+        <button class="popup-ok" onclick="closePopup()">ঠিক আছে</button>
     </div>
 </div>
 
@@ -274,51 +247,36 @@
         window.location.href = 'index.html';
     }
 
-    function selectPayment(method) {
-        // Remove selected class from all
-        document.querySelectorAll('.payment-method').forEach(item => {
-            item.classList.remove('selected');
-        });
-        
-        // Add selected class to clicked one
-        event.currentTarget.classList.add('selected');
-        document.getElementById('payment-method').value = method;
+    function showPopup() {
+        document.getElementById('confirmation-popup').style.display = 'flex';
+    }
+
+    function closePopup() {
+        document.getElementById('confirmation-popup').style.display = 'none';
+        goBack();
     }
 
     // Get product info from URL parameters
     function getProductInfo() {
         const urlParams = new URLSearchParams(window.location.search);
-        const productName = urlParams.get('product') || 'পণ্য';
+        const productName = urlParams.get('name') || 'পণ্য';
         const productPrice = urlParams.get('price') || 'আলোচনা সাপেক্ষে';
-        const productDesc = urlParams.get('desc') || 'পণ্যের বিস্তারিত';
+        const productImage = urlParams.get('image') || '';
         
         document.getElementById('product-name').textContent = productName;
         document.getElementById('product-price').textContent = 'দাম: ' + productPrice;
-        document.getElementById('product-description').textContent = 'বিস্তারিত: ' + productDesc;
-    }
-
-    // Generate random order ID
-    function generateOrderId() {
-        return 'JMSC-' + Math.floor(100000 + Math.random() * 900000);
+        
+        if (productImage) {
+            document.getElementById('product-image').src = productImage;
+        }
     }
 
     // Handle form submission
     document.getElementById('order-form').addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Validate payment method
-        if (!document.getElementById('payment-method').value) {
-            alert('দয়া করে একটি পেমেন্ট পদ্ধতি নির্বাচন করুন।');
-            return;
-        }
-
-        // Show confirmation
-        document.getElementById('order-id').textContent = generateOrderId();
-        document.getElementById('confirmation').style.display = 'block';
-        document.getElementById('order-form').style.display = 'none';
-        
-        // Scroll to confirmation
-        document.getElementById('confirmation').scrollIntoView({ behavior: 'smooth' });
+        // Show confirmation popup
+        showPopup();
     });
 
     // Initialize page
