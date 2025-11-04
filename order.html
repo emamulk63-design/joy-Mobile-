@@ -1,113 +1,331 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>অর্ডার দিন | Joya Mobile Service Center</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      background: #f8f8f8;
-      color: #333;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>অর্ডার করুন - Joya Mobile Service Center</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
 
-    header {
-      background: #111;
-      color: #fff;
-      text-align: center;
-      padding: 10px 0;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
+        body {
+            background: #f8f8f8;
+            color: #333;
+        }
 
-    h2 {
-      text-align: center;
-      color: #d61c1c;
-      margin-top: 20px;
-    }
+        header {
+            background: #111;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
 
-    form {
-      background: #fff;
-      max-width: 400px;
-      margin: 20px auto;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
-    input, select, textarea, button {
-      width: 100%;
-      padding: 10px;
-      margin: 8px 0;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
+        .back-button {
+            background: #d61c1c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
 
-    button {
-      background: #d61c1c;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+        .back-button:hover {
+            background: #a21313;
+        }
 
-    button:hover {
-      background: #a21313;
-    }
+        h2 {
+            color: #d61c1c;
+            margin-bottom: 20px;
+            text-align: center;
+        }
 
-    footer {
-      background: #111;
-      color: #fff;
-      text-align: center;
-      padding: 10px;
-      margin-top: 30px;
-    }
+        .form-group {
+            margin-bottom: 20px;
+        }
 
-    a.back {
-      display: block;
-      text-align: center;
-      margin: 10px 0;
-      text-decoration: none;
-      color: #d61c1c;
-      font-weight: bold;
-    }
-  </style>
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #d61c1c;
+            outline: none;
+        }
+
+        .product-info {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #d61c1c;
+            margin-bottom: 20px;
+        }
+
+        .product-info h4 {
+            color: #d61c1c;
+            margin-bottom: 10px;
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .payment-method {
+            border: 2px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .payment-method:hover {
+            border-color: #d61c1c;
+        }
+
+        .payment-method.selected {
+            border-color: #d61c1c;
+            background: #fff3f3;
+        }
+
+        .payment-method img {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 5px;
+        }
+
+        .submit-btn {
+            background: #d61c1c;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #a21313;
+        }
+
+        .confirmation {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .confirmation h3 {
+            color: #155724;
+            margin-bottom: 15px;
+        }
+
+        .order-id {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d61c1c;
+            margin: 10px 0;
+        }
+
+        footer {
+            background: #111;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            
+            .payment-methods {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <header>অর্ডার দিন</header>
+<header>Joya Mobile Service Center</header>
 
-  <h2>পণ্য বা সার্ভিস অর্ডার করুন</h2>
+<div class="container">
+    <button class="back-button" onclick="goBack()">← হোম পেজে ফিরে যান</button>
+    
+    <h2>পণ্য অর্ডার করুন</h2>
 
-  <form>
-    <label>আপনার নাম:</label>
-    <input type="text" placeholder="নাম লিখুন" required>
+    <div class="product-info">
+        <h4 id="product-name">পণ্যের নাম</h4>
+        <p id="product-price">দাম: </p>
+        <p id="product-description">বিস্তারিত: </p>
+    </div>
 
-    <label>মোবাইল নাম্বার:</label>
-    <input type="tel" placeholder="01XXXXXXXXX" required>
+    <form id="order-form">
+        <div class="form-group">
+            <label for="customer-name">আপনার নাম *</label>
+            <input type="text" id="customer-name" required placeholder="আপনার পুরো নাম লিখুন">
+        </div>
 
-    <label>পণ্য বা সার্ভিস:</label>
-    <select required>
-      <option value="">একটি নির্বাচন করুন</option>
-      <option>মোবাইল সার্ভিসিং</option>
-      <option>বাটন ফোন</option>
-      <option>স্মার্টফোন</option>
-      <option>মোবাইল এক্সেসরিজ</option>
-    </select>
+        <div class="form-group">
+            <label for="customer-phone">ফোন নম্বর *</label>
+            <input type="tel" id="customer-phone" required placeholder="01XXXXXXXXX">
+        </div>
 
-    <label>বিস্তারিত লিখুন:</label>
-    <textarea rows="3" placeholder="সমস্যা বা প্রয়োজনীয় তথ্য লিখুন..."></textarea>
+        <div class="form-group">
+            <label for="customer-address">ঠিকানা *</label>
+            <textarea id="customer-address" required rows="3" placeholder="আপনার সম্পূর্ণ ঠিকানা লিখুন"></textarea>
+        </div>
 
-    <button type="submit">অর্ডার সাবমিট করুন</button>
-  </form>
+        <div class="form-group">
+            <label for="product-quantity">পরিমাণ</label>
+            <select id="product-quantity">
+                <option value="1">১ টি</option>
+                <option value="2">২ টি</option>
+                <option value="3">৩ টি</option>
+                <option value="4">৪ টি</option>
+                <option value="5">৫ টি</option>
+            </select>
+        </div>
 
-  <a href="index.html" class="back">← হোম পেজে ফিরে যান</a>
+        <div class="form-group">
+            <label>পেমেন্ট পদ্ধতি *</label>
+            <div class="payment-methods">
+                <div class="payment-method" onclick="selectPayment('cash')">
+                    <div>💵</div>
+                    <strong>ক্যাশ অন ডেলিভারি</strong>
+                </div>
+                <div class="payment-method" onclick="selectPayment('bkash')">
+                    <div>📱</div>
+                    <strong>বিকাশ</strong>
+                </div>
+                <div class="payment-method" onclick="selectPayment('nagad')">
+                    <div>💰</div>
+                    <strong>নগদ</strong>
+                </div>
+                <div class="payment-method" onclick="selectPayment('rocket')">
+                    <div>🚀</div>
+                    <strong>রকেট</strong>
+                </div>
+            </div>
+            <input type="hidden" id="payment-method" required>
+        </div>
 
-  <footer>
+        <div class="form-group">
+            <label for="special-notes">বিশেষ নির্দেশনা (ঐচ্ছিক)</label>
+            <textarea id="special-notes" rows="3" placeholder="কোন বিশেষ নির্দেশনা থাকলে এখানে লিখুন..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">অর্ডার কনফার্ম করুন</button>
+    </form>
+
+    <div class="confirmation" id="confirmation">
+        <h3>✅ আপনার অর্ডার সফলভাবে গ্রহণ করা হয়েছে!</h3>
+        <p>আপনার অর্ডার আইডি:</p>
+        <div class="order-id" id="order-id">JMSC-123456</div>
+        <p>আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব। ধন্যবাদ!</p>
+    </div>
+</div>
+
+<footer>
     © 2025 Joya Mobile Service Center | Developed by MD EMAMUL
-  </footer>
+</footer>
+
+<script>
+    function goBack() {
+        window.location.href = 'index.html';
+    }
+
+    function selectPayment(method) {
+        // Remove selected class from all
+        document.querySelectorAll('.payment-method').forEach(item => {
+            item.classList.remove('selected');
+        });
+        
+        // Add selected class to clicked one
+        event.currentTarget.classList.add('selected');
+        document.getElementById('payment-method').value = method;
+    }
+
+    // Get product info from URL parameters
+    function getProductInfo() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productName = urlParams.get('product') || 'পণ্য';
+        const productPrice = urlParams.get('price') || 'আলোচনা সাপেক্ষে';
+        const productDesc = urlParams.get('desc') || 'পণ্যের বিস্তারিত';
+        
+        document.getElementById('product-name').textContent = productName;
+        document.getElementById('product-price').textContent = 'দাম: ' + productPrice;
+        document.getElementById('product-description').textContent = 'বিস্তারিত: ' + productDesc;
+    }
+
+    // Generate random order ID
+    function generateOrderId() {
+        return 'JMSC-' + Math.floor(100000 + Math.random() * 900000);
+    }
+
+    // Handle form submission
+    document.getElementById('order-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Validate payment method
+        if (!document.getElementById('payment-method').value) {
+            alert('দয়া করে একটি পেমেন্ট পদ্ধতি নির্বাচন করুন।');
+            return;
+        }
+
+        // Show confirmation
+        document.getElementById('order-id').textContent = generateOrderId();
+        document.getElementById('confirmation').style.display = 'block';
+        document.getElementById('order-form').style.display = 'none';
+        
+        // Scroll to confirmation
+        document.getElementById('confirmation').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Initialize page
+    window.onload = function() {
+        getProductInfo();
+    };
+</script>
 
 </body>
 </html>
