@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>সার্ভিস অর্ডার করুন - Joya Mobile Service Center</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: #f8f8f8;
+            color: #333;
+        }
+
+        header {
+            background: #111;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .back-button {
+            background: #d61c1c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .back-button:hover {
+            background: #a21313;
+        }
+
+        h2 {
+            color: #d61c1c;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .service-display {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+        }
+
+        .service-display img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .service-display h3 {
+            color: #d61c1c;
+            margin-bottom: 10px;
+        }
+
+        .service-display .price {
+            background: #fff3cd;
+            color: #856404;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #d61c1c;
+            outline: none;
+        }
+
+        .submit-btn {
+            background: #d61c1c;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: #a21313;
+        }
+
+        /* Popup Styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .popup h3 {
+            color: #155724;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .popup p {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .popup-ok {
+            background: #d61c1c;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .popup-ok:hover {
+            background: #a21313;
+        }
+
+        footer {
+            background: #111;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>Joya Mobile Service Center</header>
+
+<div class="container">
+    <button class="back-button" onclick="goBack()">← হোম পেজে ফিরে যান</button>
+    
+    <h2>সার্ভিস অর্ডার করুন</h2>
+
+    <div class="service-display">
+        <img id="service-image" src="" alt="সার্ভিস ছবি">
+        <h3 id="service-name">সার্ভিসের নাম</h3>
+        <div class="price" id="service-price">মূল্য: আলোচনা সাপেক্ষে</div>
+    </div>
+
+    <form id="service-form">
+        <div class="form-group">
+            <label for="customer-name">আপনার নাম *</label>
+            <input type="text" id="customer-name" required placeholder="আপনার পুরো নাম লিখুন">
+        </div>
+
+        <div class="form-group">
+            <label for="customer-phone">মোবাইল নম্বর *</label>
+            <input type="tel" id="customer-phone" required placeholder="01XXXXXXXXX">
+        </div>
+
+        <div class="form-group">
+            <label for="problem-details">বিস্তারিত লিখুন *</label>
+            <textarea id="problem-details" required rows="5" placeholder="আপনার মোবাইলের সমস্যা বা প্রয়োজনীয় তথ্য বিস্তারিত লিখুন..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">সার্ভিস অর্ডার সাবমিট করুন</button>
+    </form>
+</div>
+
+<!-- Popup Confirmation -->
+<div class="popup" id="confirmation-popup">
+    <div class="popup-content">
+        <h3>✅ সার্ভিস অর্ডার সফল!</h3>
+        <p>আপনার সার্ভিস অর্ডারটি সফল হয়েছে। কিছু সময়ের মধ্যে আমাদের একজন প্রতিনিধি আপনার সাথে যোগাযোগ করবে।</p>
+        <p><strong>ধন্যবাদ!</strong></p>
+        <button class="popup-ok" onclick="closePopup()">ঠিক আছে</button>
+    </div>
+</div>
+
+<footer>
+    © 2025 Joya Mobile Service Center | Developed by MD EMAMUL
+</footer>
+
+<script>
+    function goBack() {
+        window.location.href = 'index.html';
+    }
+
+    function showPopup() {
+        document.getElementById('confirmation-popup').style.display = 'flex';
+    }
+
+    function closePopup() {
+        document.getElementById('confirmation-popup').style.display = 'none';
+        goBack();
+    }
+
+    // Get service info from URL parameters
+    function getServiceInfo() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const serviceName = urlParams.get('name') || 'সার্ভিস';
+        const serviceImage = urlParams.get('image') || '';
+        
+        document.getElementById('service-name').textContent = serviceName;
+        
+        if (serviceImage) {
+            document.getElementById('service-image').src = serviceImage;
+        }
+    }
+
+    // Handle form submission
+    document.getElementById('service-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Show confirmation popup
+        showPopup();
+    });
+
+    // Initialize page
+    window.onload = function() {
+        getServiceInfo();
+    };
+</script>
+
+</body>
+</html>
