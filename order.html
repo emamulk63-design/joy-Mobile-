@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>অর্ডার দিন | Joya Mobile Service Center</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f8f8f8;
+      color: #333;
+    }
+
+    header {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    h2 {
+      text-align: center;
+      color: #d61c1c;
+      margin-top: 20px;
+    }
+
+    form {
+      background: #fff;
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input, select, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    button {
+      background: #d61c1c;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #a21313;
+    }
+
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      margin-top: 30px;
+    }
+
+    a.back {
+      display: block;
+      text-align: center;
+      margin: 10px 0;
+      text-decoration: none;
+      color: #d61c1c;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>অর্ডার দিন</header>
+
+  <h2>পণ্য বা সার্ভিস অর্ডার করুন</h2>
+
+  <form>
+    <label>আপনার নাম:</label>
+    <input type="text" placeholder="নাম লিখুন" required>
+
+    <label>মোবাইল নাম্বার:</label>
+    <input type="tel" placeholder="01XXXXXXXXX" required>
+
+    <label>পণ্য বা সার্ভিস:</label>
+    <select required>
+      <option value="">একটি নির্বাচন করুন</option>
+      <option>মোবাইল সার্ভিসিং</option>
+      <option>বাটন ফোন</option>
+      <option>স্মার্টফোন</option>
+      <option>মোবাইল এক্সেসরিজ</option>
+    </select>
+
+    <label>বিস্তারিত লিখুন:</label>
+    <textarea rows="3" placeholder="সমস্যা বা প্রয়োজনীয় তথ্য লিখুন..."></textarea>
+
+    <button type="submit">অর্ডার সাবমিট করুন</button>
+  </form>
+
+  <a href="index.html" class="back">← হোম পেজে ফিরে যান</a>
+
+  <footer>
+    © 2025 Joya Mobile Service Center | Developed by MD EMAMUL
+  </footer>
+
+</body>
+</html>
