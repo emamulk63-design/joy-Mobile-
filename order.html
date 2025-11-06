@@ -1,202 +1,37 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>পণ্য অর্ডার করুন - Joy Mobile Service Center</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        body {
-            background: #f8f8f8;
-            color: #333;
-        }
-
-        header {
-            background: #111;
-            color: #fff;
-            text-align: center;
-            padding: 15px 0;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .back-button {
-            background: #d61c1c;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-
-        .back-button:hover {
-            background: #a21313;
-        }
-
-        h2 {
-            color: #d61c1c;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .product-display {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 20px;
-            background: #f9f9f9;
-            border-radius: 10px;
-            border: 2px solid #ddd;
-        }
-
-        .product-display img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-
-        .product-display h3 {
-            color: #d61c1c;
-            margin-bottom: 10px;
-        }
-
-        .product-display p {
-            color: #555;
-            font-size: 1.1rem;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #555;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-        }
-
-        input:focus, textarea:focus {
-            border-color: #d61c1c;
-            outline: none;
-        }
-
-        .submit-btn {
-            background: #d61c1c;
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 5px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            transition: background 0.3s;
-            margin-top: 10px;
-        }
-
-        .submit-btn:hover {
-            background: #a21313;
-        }
-
-        .submit-btn:disabled {
-            background: #cccccc;
-            cursor: not-allowed;
-        }
-
-        /* Popup Styles */
-        .popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .popup-content {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        .popup h3 {
-            color: #155724;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        .popup p {
-            color: #555;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .popup-ok {
-            background: #d61c1c;
-            color: white;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .popup-ok:hover {
-            background: #a21313;
-        }
-
-        footer {
-            background: #111;
-            color: #fff;
-            text-align: center;
-            padding: 15px;
-            margin-top: 30px;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                margin: 10px;
-                padding: 15px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>পণ্য অর্ডার করুন - Joy Mobile Service Center</title>
+<style>
+/* ======= CSS একই, শুধুমাত্র JavaScript-এর জন্য HTML ঠিক রেখে দিলাম ======= */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', sans-serif; }
+body { background:#f8f8f8; color:#333; }
+header { background:#111; color:#fff; text-align:center; padding:15px 0; font-size:1.5rem; font-weight:bold; }
+.container { max-width:600px; margin:20px auto; padding:20px; background:white; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); }
+.back-button { background:#d61c1c; color:white; border:none; padding:10px 20px; border-radius:5px; cursor:pointer; margin-bottom:20px; font-weight:bold; }
+.back-button:hover { background:#a21313; }
+h2 { color:#d61c1c; margin-bottom:20px; text-align:center; }
+.product-display { text-align:center; margin-bottom:30px; padding:20px; background:#f9f9f9; border-radius:10px; border:2px solid #ddd; }
+.product-display img { width:150px; height:150px; object-fit:cover; border-radius:10px; margin-bottom:15px; }
+.product-display h3 { color:#d61c1c; margin-bottom:10px; }
+.product-display p { color:#555; font-size:1.1rem; }
+.form-group { margin-bottom:20px; }
+label { display:block; margin-bottom:8px; font-weight:bold; color:#555; }
+input, textarea { width:100%; padding:12px; border:2px solid #ddd; border-radius:5px; font-size:16px; transition:border-color 0.3s; }
+input:focus, textarea:focus { border-color:#d61c1c; outline:none; }
+.submit-btn { background:#d61c1c; color:white; border:none; padding:15px; border-radius:5px; font-size:18px; font-weight:bold; cursor:pointer; width:100%; transition:background 0.3s; margin-top:10px; }
+.submit-btn:hover { background:#a21313; }
+.popup { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000; justify-content:center; align-items:center; }
+.popup-content { background:white; padding:30px; border-radius:10px; text-align:center; max-width:400px; width:90%; box-shadow:0 5px 15px rgba(0,0,0,0.3); }
+.popup h3 { color:#155724; margin-bottom:15px; font-size:1.5rem; }
+.popup p { color:#555; margin-bottom:20px; line-height:1.6; }
+.popup-ok { background:#d61c1c; color:white; border:none; padding:10px 25px; border-radius:5px; font-size:16px; cursor:pointer; font-weight:bold; }
+.popup-ok:hover { background:#a21313; }
+footer { background:#111; color:#fff; text-align:center; padding:15px; margin-top:30px; }
+@media(max-width:768px){ .container{ margin:10px; padding:15px; } }
+</style>
 </head>
 <body>
 
@@ -204,7 +39,6 @@
 
 <div class="container">
     <button class="back-button" onclick="goBack()">← হোম পেজে ফিরে যান</button>
-    
     <h2>পণ্য অর্ডার করুন</h2>
 
     <div class="product-display">
@@ -229,11 +63,10 @@
             <textarea id="customer-address" required rows="3" placeholder="আপনার সম্পূর্ণ ঠিকানা লিখুন"></textarea>
         </div>
 
-        <button type="submit" class="submit-btn" id="submit-btn">অর্ডার সাবমিট করুন</button>
+        <button type="submit" class="submit-btn">অর্ডার সাবমিট করুন</button>
     </form>
 </div>
 
-<!-- Popup Confirmation -->
 <div class="popup" id="confirmation-popup">
     <div class="popup-content">
         <h3>✅ অর্ডার সফল!</h3>
@@ -243,142 +76,53 @@
     </div>
 </div>
 
-<!-- Error Popup -->
-<div class="popup" id="error-popup">
-    <div class="popup-content">
-        <h3>❌ সমস্যা হয়েছে</h3>
-        <p id="error-message">অর্ডারটি পাঠানো যায়নি। দয়া করে আবার চেষ্টা করুন।</p>
-        <button class="popup-ok" onclick="closeErrorPopup()">ঠিক আছে</button>
-    </div>
-</div>
-
 <footer>
-    © 2025 Joy Mobile Service Center | Developed by MD EMAMUL
+© 2025 Joy Mobile Service Center | Developed by MD EMAMUL
 </footer>
 
 <script>
-    // Telegram bot configuration
-    const TELEGRAM_BOT_CONFIG = {
-        scriptURL: 'https://script.google.com/macros/s/AKfycbx4SCfxy7xhrYI3c-Ke4dagruivhGoejnxq-cvUNc5ni3EjIghkwkzcErahQcneLnod/exec'
+const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbxKys3WxRMVxao58bSVXdpVm_c9TbS5pluEKz2pvvB_adIPud_QtDnA7NXgSwcag-B_xQ/exec";
+const SECRET_KEY = "JOYAMobile!$q9v7Xz2#2025";
+
+function goBack() { window.location.href = 'index.html'; }
+function showPopup() { document.getElementById('confirmation-popup').style.display = 'flex'; }
+function closePopup() { document.getElementById('confirmation-popup').style.display = 'none'; goBack(); }
+
+function getProductInfo() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productName = urlParams.get('name') || 'পণ্য';
+    const productPrice = urlParams.get('price') || 'আলোচনা সাপেক্ষে';
+    const productImage = urlParams.get('image') || '';
+    document.getElementById('product-name').textContent = productName;
+    document.getElementById('product-price').textContent = 'দাম: ' + productPrice;
+    if (productImage) document.getElementById('product-image').src = productImage;
+}
+
+document.getElementById('order-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    const orderData = {
+        secret: SECRET_KEY,
+        name: document.getElementById("customer-name").value,
+        phone: document.getElementById("customer-phone").value,
+        address: document.getElementById("customer-address").value,
+        items:[{
+            title: document.getElementById("product-name").textContent,
+            price: document.getElementById("product-price").textContent.replace("দাম: ",""),
+            image: document.getElementById("product-image").src
+        }],
+        total: document.getElementById("product-price").textContent.replace("দাম: ","")
     };
 
-    function goBack() {
-        window.location.href = 'index.html';
-    }
+    fetch(WEBHOOK_URL, {
+        method: "POST",
+        body: JSON.stringify(orderData)
+    })
+    .then(res => res.json())
+    .then(data => { showPopup(); })
+    .catch(err => { alert("অর্ডার পাঠাতে সমস্যা হয়েছে"); console.error(err); });
+});
 
-    function showPopup() {
-        document.getElementById('confirmation-popup').style.display = 'flex';
-    }
-
-    function closePopup() {
-        document.getElementById('confirmation-popup').style.display = 'none';
-        goBack();
-    }
-
-    function showErrorPopup(message) {
-        document.getElementById('error-message').textContent = message;
-        document.getElementById('error-popup').style.display = 'flex';
-    }
-
-    function closeErrorPopup() {
-        document.getElementById('error-popup').style.display = 'none';
-    }
-
-    // Get product info from URL parameters
-    function getProductInfo() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const productName = urlParams.get('name') || 'পণ্য';
-        const productPrice = urlParams.get('price') || 'আলোচনা সাপেক্ষে';
-        const productImage = urlParams.get('image') || '';
-        
-        document.getElementById('product-name').textContent = productName;
-        document.getElementById('product-price').textContent = 'দাম: ' + productPrice;
-        
-        if (productImage) {
-            document.getElementById('product-image').src = productImage;
-        }
-        
-        return {
-            name: productName,
-            price: productPrice,
-            image: productImage
-        };
-    }
-
-    // Send order data to Telegram bot
-    async function sendOrderToTelegram(formData) {
-        try {
-            const response = await fetch(TELEGRAM_BOT_CONFIG.scriptURL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData)
-            });
-            
-            const result = await response.json();
-            return result;
-        } catch (error) {
-            console.error('Error sending order to Telegram:', error);
-            throw new Error('নেটওয়ার্ক সমস্যা, দয়া করে আবার চেষ্টা করুন');
-        }
-    }
-
-    // Handle form submission
-    document.getElementById('order-form').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        const submitBtn = document.getElementById('submit-btn');
-        const originalText = submitBtn.textContent;
-        
-        // Disable button and show loading
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'অর্ডার পাঠানো হচ্ছে...';
-        
-        try {
-            // Get form data
-            const customerName = document.getElementById('customer-name').value;
-            const customerPhone = document.getElementById('customer-phone').value;
-            const customerAddress = document.getElementById('customer-address').value;
-            
-            // Get product info
-            const productInfo = getProductInfo();
-            
-            // Prepare data for Telegram
-            const orderData = {
-                product_name: productInfo.name,
-                product_price: productInfo.price,
-                product_image: productInfo.image,
-                customer_name: customerName,
-                customer_phone: customerPhone,
-                customer_address: customerAddress,
-                order_time: new Date().toLocaleString('bn-BD')
-            };
-            
-            // Send to Telegram
-            const result = await sendOrderToTelegram(orderData);
-            
-            if (result.status === "success") {
-                // Show success popup
-                showPopup();
-            } else {
-                throw new Error(result.message || 'অর্ডার পাঠানো যায়নি');
-            }
-            
-        } catch (error) {
-            console.error('Order submission error:', error);
-            showErrorPopup(error.message);
-        } finally {
-            // Re-enable button
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalText;
-        }
-    });
-
-    // Initialize page
-    window.onload = function() {
-        getProductInfo();
-    };
+window.onload = getProductInfo;
 </script>
 
 </body>
