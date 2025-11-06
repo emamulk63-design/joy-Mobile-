@@ -126,6 +126,11 @@
             background: #a21313;
         }
 
+        .submit-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+
         /* Popup Styles */
         .popup {
             display: none;
@@ -224,7 +229,7 @@
             <textarea id="customer-address" required rows="3" placeholder="আপনার সম্পূর্ণ ঠিকানা লিখুন"></textarea>
         </div>
 
-        <button type="submit" class="submit-btn">অর্ডার সাবমিট করুন</button>
+        <button type="submit" class="submit-btn" id="submit-btn">অর্ডার সাবমিট করুন</button>
     </form>
 </div>
 
@@ -238,11 +243,25 @@
     </div>
 </div>
 
+<!-- Error Popup -->
+<div class="popup" id="error-popup">
+    <div class="popup-content">
+        <h3>❌ সমস্যা হয়েছে</h3>
+        <p id="error-message">অর্ডারটি পাঠানো যায়নি। দয়া করে আবার চেষ্টা করুন।</p>
+        <button class="popup-ok" onclick="closeErrorPopup()">ঠিক আছে</button>
+    </div>
+</div>
+
 <footer>
     © 2025 Joy Mobile Service Center | Developed by MD EMAMUL
 </footer>
 
 <script>
+    // Telegram bot configuration
+    const TELEGRAM_BOT_CONFIG = {
+        scriptURL: 'https://script.google.com/macros/s/AKfycbx4SCfxy7xhrYI3c-Ke4dagruivhGoejnxq-cvUNc5ni3EjIghkwkzcErahQcneLnod/exec'
+    };
+
     function goBack() {
         window.location.href = 'index.html';
     }
@@ -254,6 +273,15 @@
     function closePopup() {
         document.getElementById('confirmation-popup').style.display = 'none';
         goBack();
+    }
+
+    function showErrorPopup(message) {
+        document.getElementById('error-message').textContent = message;
+        document.getElementById('error-popup').style.display = 'flex';
+    }
+
+    function closeErrorPopup() {
+        document.getElementById('error-popup').style.display = 'none';
     }
 
     // Get product info from URL parameters
@@ -269,14 +297,82 @@
         if (productImage) {
             document.getElementById('product-image').src = productImage;
         }
+        
+        return {
+            name: productName,
+            price: productPrice,
+            image: productImage
+        };
+    }
+
+    // Send order data to Telegram bot
+    async function sendOrderToTelegram(formData) {
+        try {
+            const response = await fetch(TELEGRAM_BOT_CONFIG.scriptURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+            
+            const result = await response.json();
+            return result;
+        } catch (error) {
+            console.error('Error sending order to Telegram:', error);
+            throw new Error('নেটওয়ার্ক সমস্যা, দয়া করে আবার চেষ্টা করুন');
+        }
     }
 
     // Handle form submission
-    document.getElementById('order-form').addEventListener('submit', function(e) {
+    document.getElementById('order-form').addEventListener('submit', async function(e) {
         e.preventDefault();
         
-        // Show confirmation popup
-        showPopup();
+        const submitBtn = document.getElementById('submit-btn');
+        const originalText = submitBtn.textContent;
+        
+        // Disable button and show loading
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'অর্ডার পাঠানো হচ্ছে...';
+        
+        try {
+            // Get form data
+            const customerName = document.getElementById('customer-name').value;
+            const customerPhone = document.getElementById('customer-phone').value;
+            const customerAddress = document.getElementById('customer-address').value;
+            
+            // Get product info
+            const productInfo = getProductInfo();
+            
+            // Prepare data for Telegram
+            const orderData = {
+                product_name: productInfo.name,
+                product_price: productInfo.price,
+                product_image: productInfo.image,
+                customer_name: customerName,
+                customer_phone: customerPhone,
+                customer_address: customerAddress,
+                order_time: new Date().toLocaleString('bn-BD')
+            };
+            
+            // Send to Telegram
+            const result = await sendOrderToTelegram(orderData);
+            
+            if (result.status === "success") {
+                // Show success popup
+                showPopup();
+            } else {
+                throw new Error(result.message || 'অর্ডার পাঠানো যায়নি');
+            }
+            
+        } catch (error) {
+            console.error('Order submission error:', error);
+            showErrorPopup(error.message);
+        } finally {
+            // Re-enable button
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+        }
     });
 
     // Initialize page
