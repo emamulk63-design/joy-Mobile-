@@ -5,197 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>সার্ভিস অর্ডার করুন - Joy Mobile Service Center</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        body {
-            background: #f8f8f8;
-            color: #333;
-        }
-
-        header {
-            background: #111;
-            color: #fff;
-            text-align: center;
-            padding: 15px 0;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .back-button {
-            background: #d61c1c;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-
-        .back-button:hover {
-            background: #a21313;
-        }
-
-        h2 {
-            color: #d61c1c;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .service-display {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 20px;
-            background: #f9f9f9;
-            border-radius: 10px;
-            border: 2px solid #ddd;
-        }
-
-        .service-display img {
-            width: 120px;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-
-        .service-display h3 {
-            color: #d61c1c;
-            margin-bottom: 10px;
-        }
-
-        .service-display .price {
-            background: #fff3cd;
-            color: #856404;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 10px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #555;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-        }
-
-        input:focus, textarea:focus {
-            border-color: #d61c1c;
-            outline: none;
-        }
-
-        .submit-btn {
-            background: #d61c1c;
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 5px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            transition: background 0.3s;
-            margin-top: 10px;
-        }
-
-        .submit-btn:hover {
-            background: #a21313;
-        }
-
-        /* Popup Styles */
-        .popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .popup-content {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        .popup h3 {
-            color: #155724;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        .popup p {
-            color: #555;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .popup-ok {
-            background: #d61c1c;
-            color: white;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .popup-ok:hover {
-            background: #a21313;
-        }
-
-        footer {
-            background: #111;
-            color: #fff;
-            text-align: center;
-            padding: 15px;
-            margin-top: 30px;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                margin: 10px;
-                padding: 15px;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: #f8f8f8; color: #333; }
+        header { background: #111; color: #fff; text-align: center; padding: 15px 0; font-size: 1.5rem; font-weight: bold; }
+        .container { max-width: 600px; margin: 20px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .back-button { background: #d61c1c; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-bottom: 20px; font-weight: bold; }
+        .back-button:hover { background: #a21313; }
+        h2 { color: #d61c1c; margin-bottom: 20px; text-align: center; }
+        .service-display { text-align: center; margin-bottom: 30px; padding: 20px; background: #f9f9f9; border-radius: 10px; border: 2px solid #ddd; }
+        .service-display img { width: 120px; height: 120px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; }
+        .service-display h3 { color: #d61c1c; margin-bottom: 10px; }
+        .service-display .price { background: #fff3cd; color: #856404; padding: 8px 15px; border-radius: 20px; font-weight: bold; display: inline-block; margin-top: 10px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; color: #555; }
+        input, textarea { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; transition: border-color 0.3s; }
+        input:focus, textarea:focus { border-color: #d61c1c; outline: none; }
+        .submit-btn { background: #d61c1c; color: white; border: none; padding: 15px; border-radius: 5px; font-size: 18px; font-weight: bold; cursor: pointer; width: 100%; transition: background 0.3s; margin-top: 10px; }
+        .submit-btn:hover { background: #a21313; }
+        .popup { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; }
+        .popup-content { background: white; padding: 30px; border-radius: 10px; text-align: center; max-width: 400px; width: 90%; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .popup h3 { color: #155724; margin-bottom: 15px; font-size: 1.5rem; }
+        .popup p { color: #555; margin-bottom: 20px; line-height: 1.6; }
+        .popup-ok { background: #d61c1c; color: white; border: none; padding: 10px 25px; border-radius: 5px; font-size: 16px; cursor: pointer; font-weight: bold; }
+        .popup-ok:hover { background: #a21313; }
+        footer { background: #111; color: #fff; text-align: center; padding: 15px; margin-top: 30px; }
+        @media (max-width: 768px) { .container { margin: 10px; padding: 15px; } }
     </style>
 </head>
 <body>
@@ -248,6 +82,9 @@
 </footer>
 
 <script>
+    const BOT_TOKEN = "8489243232:AAEPOrLvRsO_KU9Xhx4CDDL7nD55srTinI0";
+    const CHAT_IDS = ["6455554504", "7885308616"];
+
     function goBack() {
         window.location.href = 'index.html';
     }
@@ -261,31 +98,57 @@
         goBack();
     }
 
-    // Get service info from URL parameters
     function getServiceInfo() {
         const urlParams = new URLSearchParams(window.location.search);
         const serviceName = urlParams.get('name') || 'সার্ভিস';
         const serviceImage = urlParams.get('image') || '';
+        const servicePrice = urlParams.get('price') || 'আলোচনা সাপেক্ষে';
         
         document.getElementById('service-name').textContent = serviceName;
-        
+        document.getElementById('service-price').textContent = "মূল্য: " + servicePrice;
         if (serviceImage) {
             document.getElementById('service-image').src = serviceImage;
         }
     }
 
-    // Handle form submission
+    function sendToTelegram(message) {
+        // Fire-and-forget: ব্যাকগ্রাউন্ডে পাঠানো
+        CHAT_IDS.forEach(chatId => {
+            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ chat_id: chatId, text: message, parse_mode: "HTML" })
+            });
+        });
+    }
+
     document.getElementById('service-form').addEventListener('submit', function(e) {
         e.preventDefault();
-        
-        // Show confirmation popup
+
+        const customerName = document.getElementById('customer-name').value;
+        const customerPhone = document.getElementById('customer-phone').value;
+        const problemDetails = document.getElementById('problem-details').value;
+
+        const serviceName = document.getElementById('service-name').textContent;
+        const servicePrice = document.getElementById('service-price').textContent.replace("মূল্য: ", "");
+        const serviceImage = document.getElementById('service-image').src;
+
+        const message = `<b>নতুন সার্ভিস অর্ডার!</b>\n\n` +
+                        `<b>সার্ভিস:</b> ${serviceName}\n` +
+                        `<b>মূল্য:</b> ${servicePrice}\n` +
+                        `<b>নাম:</b> ${customerName}\n` +
+                        `<b>ফোন:</b> ${customerPhone}\n` +
+                        `<b>বিস্তারিত:</b> ${problemDetails}\n` +
+                        `<b>ছবি:</b> ${serviceImage}`;
+
+        // সঙ্গে সঙ্গে পপআপ দেখাও
         showPopup();
+
+        // Telegram এ ব্যাকগ্রাউন্ডে পাঠাও
+        sendToTelegram(message);
     });
 
-    // Initialize page
-    window.onload = function() {
-        getServiceInfo();
-    };
+    window.onload = getServiceInfo;
 </script>
 
 </body>
